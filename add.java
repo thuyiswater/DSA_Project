@@ -10,9 +10,7 @@ public class add {
 
         while (left <= right) {
 
-            int mid = left + (right - left) / 2; 
-            System.out.println(mid + " mid");
-           
+            int mid = (right + left) / 2; 
             if (left == right) {  // 2 pointer met
 
                 if (value.compareTo(arr.get(mid)) < 0) {  // add to left
@@ -25,16 +23,21 @@ public class add {
             }
                 
             else if (value.compareTo(arr.get(mid)) > 0) {  // go right
+                System.out.println("compare left: " + value.compareTo(arr.get(mid)));
+                System.out.println(mid + " mid");
                 System.out.println(left + " Left before");
                 left = mid + 1;
                 System.out.println(left + " left after");
                 System.out.println("-----------");
+
             }
 
             else if (value.compareTo(arr.get(mid)) < 0) {  // go left
-                System.out.println(right + "right before");
+                System.out.println("compare right: " + value.compareTo(arr.get(mid)));
+                System.out.println(mid + " mid");
+                System.out.println(right + " right before");
                 right = mid - 1;
-                System.out.println(right + "right after");
+                System.out.println(right + " right after");
                 System.out.println("-----------");
                 
             }
@@ -43,6 +46,8 @@ public class add {
                 System.out.println("User already exist");
                 return;
             }
+
+           // arr.add(left - 1, value);
         }
     }
 
@@ -50,16 +55,24 @@ public class add {
 
         ArrayList<String> list = new ArrayList<String>();
 
-        list.add("a");
-        list.add("b");  
+        list.add("a");  
         list.add("c");  
         list.add("e");  
         list.add("f");  
         list.add("g"); 
         list.add("h"); 
-        list.add("i"); 
+        list.add("n"); 
+        list.add("s");
+        list.add("w"); 
 
-        insert(list, "x");
+        System.out.println(list);
+
+        insert(list, "w");
+
+        //add in right order: b, i, j , k, l, m, x, y, z
+        //can not add (because left > right so the while loop stop, need to find a way to fix this): d, o, p , q, r
+        //add wrong order(should be before w instead of s): t, u, v
+        //match value did not inform: a, f, h, w
         System.out.println(list);
     }
 }
