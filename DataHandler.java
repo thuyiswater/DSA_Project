@@ -8,7 +8,7 @@ public class DataHandler {
         myArr.add("2");
         myArr.add("3");
         myArr.add(1,"X");
-        for (int i = 0; i < myArr.sizeOf(); i++) {
+        for (int i = 0; i < myArr.size(); i++) {
             System.out.println(myArr.get(i));
         }
 
@@ -62,7 +62,7 @@ class MyArrayList<T> {
         elements = Arrays.copyOf(elements, newSize);
     }
 
-    public int sizeOf() {
+    public int size() {
         return size;
     }
 }
