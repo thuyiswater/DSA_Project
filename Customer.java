@@ -3,16 +3,19 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String phone;
-
+    
+    //constructor
     public Customer(String ID, String firstName, String lastName, String phone) {
         this.ID = ID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
     }
-
+    
+    //constructor
     public Customer() {}
-
+    
+    //create setter & getter
     public String getID() {
         return ID;
     }
@@ -44,7 +47,8 @@ public class Customer {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
+    
+    //print out
     @Override
     public String toString() {
         return "ID = " + ID + ", firstName = " + firstName + ", lastName = " + lastName +
