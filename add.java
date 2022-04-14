@@ -70,8 +70,8 @@ public class add {
         insert(list, "w");
 
         //add in right order: b, i, j , k, l, m, x, y, z
-        //can not add: d, o, p , q, r
-        //add wrong order: t, u, v, 
+        //can not add (because left > right so the while loop stop, need to find a way to fix this): d, o, p , q, r
+        //add wrong order(should be before w instead of s): t, u, v
         //match value did not inform: a, f, h, w
         System.out.println(list);
     }
