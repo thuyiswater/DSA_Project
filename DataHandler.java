@@ -3,33 +3,38 @@ import java.io.*;
 
 public class DataHandler {
     public static void main(String[] args) throws Exception {
+    
+        //test functions
         MyArrayList<String> myArr = new MyArrayList<String>();
         myArr.add("1");
         myArr.add("2");
         myArr.add("3");
         myArr.add(1,"X");
-        for (int i = 0; i < myArr.sizeOf(); i++) {
+        for (int i = 0; i < myArr.size(); i++) {
             System.out.println(myArr.get(i));
         }
 
+        //read and write file nhưng đang đợi chị Thủy push class Customer lên mới làm típ đc
         BufferedReader reader = new BufferedReader(new FileReader("data.csv"));
-        reader.readLine(); // skip 1st line
         String line = reader.readLine();
         
         reader.close();
     }
 }
 
+// implement ArrayList
 class MyArrayList<T> {
     private Object[] elements;
     private int size;
-    private static final int DEFAULT_CAPACITY = 1000;
+    private static int DEFAULT_CAPACITY = 1000; // temporary capacity of array when first created
 
+    // constructor
     public MyArrayList() {
         elements = (T[]) new Object[DEFAULT_CAPACITY];
         size = 0;
     }
 
+    // method: add element to the last position
     public void add(T obj) {
         if (size > elements.length) {
             increaseCapa();
@@ -38,6 +43,7 @@ class MyArrayList<T> {
         size++;
     }
 
+    // method: add element to a specific position
     public void add(int index, T obj) {
         if (size > elements.length) {
             increaseCapa();
@@ -49,6 +55,7 @@ class MyArrayList<T> {
         size++;
     }
 
+    // method: return element of a specific position
     public T get(int index) throws Exception {
         if(index < size){
             return (T) elements[index];
@@ -57,12 +64,14 @@ class MyArrayList<T> {
         }
     }
 
+    // automatically increase capacity of array when full
     private void increaseCapa() {
         int newSize = elements.length * 2;
         elements = Arrays.copyOf(elements, newSize);
     }
 
-    public int sizeOf() {
+    // return number of element in arrays, not full capacity
+    public int size() {
         return size;
     }
 }
