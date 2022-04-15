@@ -7,19 +7,19 @@ public class Search {
 
     // ----------------------------- B I N A R Y  S E A R C H ------------------------------------
     
-    public static int BinarySearch(ArrayList<String> arr, String value) {
+    public static int BinarySearch(MyArrayList<Customer> arr, String value) throws Exception {
 
         int left = 0;  // set index
         int right = arr.size() - 1;  
 
         while (left <= right) {
-
+           
             int mid = (left + right) / 2;  // middle value index
                 
-            if (value.compareTo(arr.get(mid)) < 0) {  // go left
+            if (value.compareTo(arr.get(mid).getID()) < 0) {  // go left
                 right = mid - 1;  // move pointer to left
             }
-            else if (value.compareTo(arr.get(mid)) > 0) {  // go right
+            else if (value.compareTo(arr.get(mid).getID()) > 0) {  // go right
                 left = mid + 1;  // move pointer to right
             }
             else {  // match value
@@ -31,7 +31,7 @@ public class Search {
 
     // ------------------------------ E X A C T  S E A R C H -------------------------------------
 
-    public static void ExactSearch(ArrayList<String> arr) {
+    public static void ExactSearch(MyArrayList<Customer> arr) throws Exception {
 
         System.out.print("\nPlease enter a complete user's ID: ");
         String value = input.nextLine();  // get input
@@ -47,7 +47,7 @@ public class Search {
 
     // ---------------------------- P A R T I A L  S E A R C H -----------------------------------
 
-    public static int IndexSearch(ArrayList<String> arr, String target, String value) {
+    public static int IndexSearch(MyArrayList<Customer> arr, String target, String value) throws Exception {
 
         int left = 0;  // set index
         int right = arr.size() - 1;  
@@ -56,39 +56,39 @@ public class Search {
 
             int mid = (left + right) / 2;  // middle value index
                 
-            if (arr.get(mid).contains(value) == true) {
+            if (arr.get(mid).getID().contains(value) == true) {
                 return mid;
             }
-            else if (value.compareTo(arr.get(mid)) < 0) {  // go left
+            else if (value.compareTo(arr.get(mid).getID()) < 0) {  // go left
                 right = mid - 1;  // move pointer to left
             }
-            else if (value.compareTo(arr.get(mid)) > 0) {  // go right
+            else if (value.compareTo(arr.get(mid).getID()) > 0) {  // go right
                 left = mid + 1;  // move pointer to right
             }
         }
         return -1;  // not match result
     }
 
-    public static void ValueSearch(ArrayList<String> arr, int index, String value) {
+    public static void ValueSearch(MyArrayList<Customer> arr, int index, String value) throws Exception {
 
         // loop to left side
-        for (int i = index - 1; i >= 0; i--) {
-            if (arr.get(i).contains(value) == false) {  // exit if the next value does not contain the search value
+        for (int i = index - 1; i > index - 10; i--) {
+            if (arr.get(i).getID().contains(value) == false) {  // exit if the next value does not contain the search value
                 break;
             }
             System.out.println(arr.get(i));
         }
 
         // loop to right
-        for (int i = index + 1; i < arr.size(); i++) {
-            if (arr.get(i).contains(value) == false) {   // exit if the next value does not contain the search value
+        for (int i = index + 1; i < index + 10; i++) {
+            if (arr.get(i).getID().contains(value) == false) {   // exit if the next value does not contain the search value
                 break;
             }
             System.out.println(arr.get(i));
         }
     }
 
-    public static void PartialSearch(ArrayList<String> arr) {
+    public static void PartialSearch(MyArrayList<Customer> arr) throws Exception {
 
         System.out.print("\nPlease enter customer's ID (5 > 8 letters): ");
         String value = input.nextLine();  // get input
@@ -113,23 +113,5 @@ public class Search {
         // loop forward and backward for matching value
         System.out.println(arr.get(index));
         ValueSearch(arr, index, value);
-    }
-
-    public static void main(String[] args) {
-
-        ArrayList<String> list = new ArrayList<String>();
-
-        list.add("abc11134");
-        list.add("bre55353");  
-        list.add("cdd12443");  
-        list.add("cdd23467");  
-        list.add("cdd34343");
-        list.add("cdd45746");  
-        list.add("gjg34336");  
-        list.add("hww23556"); 
-        list.add("ikh78823"); 
-
-        // ExactSearch(list);
-        PartialSearch(list);
     }
 }

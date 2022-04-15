@@ -1,4 +1,5 @@
 public class Customer {
+
     private String ID;
     private String firstName;
     private String lastName;
@@ -12,10 +13,11 @@ public class Customer {
         this.phone = phone;
     }
     
-    //constructor
+    // empty constructor
     public Customer() {}
     
-    //create setter & getter
+    // --------------- Create Setter & Getter for every variables ------------------
+
     public String getID() {
         return ID;
     }
@@ -51,7 +53,15 @@ public class Customer {
     //print out
     @Override
     public String toString() {
-        return "ID = " + ID + ", firstName = " + firstName + ", lastName = " + lastName +
-                ", phone = " + phone;
+
+        // add space behind name
+        String space = " ";
+        int size = 40 - (firstName.length() + lastName.length());  // 40 is the max size for name
+
+        for (int i = 1; i < size; i++) {
+            space += " ";
+        }
+
+        return (String.format("%s %s %s %s %s", ID, firstName, lastName, space, phone));
     }
 }
