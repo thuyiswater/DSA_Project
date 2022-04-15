@@ -3,22 +3,26 @@ import java.io.*;
 
 public class DataHandler {
     public static void main(String[] args) throws Exception {
-    
-        //test functions
-        MyArrayList<String> myArr = new MyArrayList<String>();
-        myArr.add("1");
-        myArr.add("2");
-        myArr.add("3");
-        myArr.add(1,"X");
-        for (int i = 0; i < myArr.size(); i++) {
-            System.out.println(myArr.get(i));
-        }
 
-        //read and write file nhưng đang đợi chị Thủy push class Customer lên mới làm típ đc
-        BufferedReader reader = new BufferedReader(new FileReader("data.csv"));
+        MyArrayList<Customer> CustomersList = new MyArrayList<>();
+    
+        //read and write file 
+        BufferedReader reader = new BufferedReader(new FileReader("customer.csv"));
+        reader.readLine();
         String line = reader.readLine();
-        
+        while (line != null) {
+            String[] splitData = line.split(",");
+            Customer tempCus = new Customer(splitData[0], splitData[1], splitData[2], splitData[3]);
+            // CustomersList.add(tempCus);
+            AddCustomer.insert(CustomersList, tempCus);
+            line = reader.readLine();
+        }
         reader.close();
+
+        //print ID of elements in list
+        for (int i = 0; i < CustomersList.size(); i++) {
+            System.out.println(CustomersList.get(i).getID());
+        }
     }
 }
 
