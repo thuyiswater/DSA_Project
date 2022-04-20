@@ -20,11 +20,7 @@ public class Main {
             System.out.print("\nPlease select an option by enter the number: ");
 
             int option = Integer.parseInt(input.next());
-<<<<<<< HEAD
-            
-=======
 
->>>>>>> 706cdbbfeba8654e84673459bbef94c881a9e967
             switch (option) {
                 case 1:
                     AddCustomer.insert(CustomersList);
@@ -41,9 +37,9 @@ public class Main {
                     option = Integer.parseInt(input.next());
                     
                     if (option == 1) {
-                        Search.ExactSearch(CustomersList);
+                        Search.exactSearch(CustomersList);
                     } else {
-                        Search.PartialSearch(CustomersList);
+                        Search.partialSearch(CustomersList);
                     }
                     break;
                 case 4:
