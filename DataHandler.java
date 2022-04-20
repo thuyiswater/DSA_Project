@@ -1,35 +1,45 @@
 import java.util.*;
 import java.io.*;
 
-public class DataHandler {
+class DataHandler {
 
-    // an array to store all customers
-    public static MyArrayList<Customer> CustomersList = new MyArrayList<>();
-    public static void main(String[] args) throws Exception {
-    
-        //read and write file 
-        BufferedReader reader = new BufferedReader(new FileReader("customer.csv"));  // read file
-        reader.readLine();  // skip 1st line
-        String line = reader.readLine();  // read 2nd line
+    // public static void main(String[] args) throws Exception {
+    //     readFile();
+    //     writeFile();
+    // }
+
+    // static MyArrayList<Customer> CustomersList = new MyArrayList<>();
+
+    public static void readFile(MyArrayList<Customer> arr) throws Exception {
+
+        // an array to store all customers
+        BufferedReader reader = new BufferedReader(new FileReader("customer.csv")); // read file
+        reader.readLine(); // skip 1st line
+        String line = reader.readLine(); // read 2nd line
 
         // read each line
-        while (line != null) {  // still got data after
+        while (line != null) { // still got data after
 
             String[] splitData = line.split(",");
-            Customer tempCus = new Customer(splitData[0], splitData[1], splitData[2], splitData[3]);  // assign splitted data to object
+            Customer tempCus = new Customer(splitData[0], splitData[1], splitData[2], splitData[3]); // assign splitted
+                                                                                                     // data to object
 
             // CustomersList.add(tempCus);
-            AddCustomer.insert(CustomersList, tempCus);  // add to MyArrayList
-            line = reader.readLine();  // read next line
+            AddCustomer.add(arr, tempCus); // add to MyArrayList
+            line = reader.readLine(); // read next line
         }
         reader.close();
+    }
 
-        //print ID of elements in list
-        for (int i = 0; i < CustomersList.size(); i++) {
-            System.out.println(CustomersList.get(i));
+    public static void writeFile(MyArrayList<Customer> arr) throws Exception {
+        BufferedWriter writer = new BufferedWriter(new FileWriter("customer.csv"));
+        writer.write("customer_id,firstname,lastname,phone");
+
+        for (int i = 0; i < arr.size(); i++) {
+            writer.newLine();
+            writer.write(arr.get(i).getID() + "," + arr.get(i).getFirstName() + "," + arr.get(i).getLastName() + "," + arr.get(i).getPhone());
         }
-
-        Search.PartialSearch(DataHandler.CustomersList);
+        writer.close();
     }
 }
 
@@ -60,8 +70,8 @@ class MyArrayList<T> {
         if (size == elements.length) {
             increaseCapa();
         }
-        for (int i = size-1; i > index-1; i--) {
-            elements[i+1] = elements[i]; 
+        for (int i = size - 1; i > index - 1; i--) {
+            elements[i + 1] = elements[i];
         }
         elements[index] = obj;
         size++;
@@ -69,7 +79,7 @@ class MyArrayList<T> {
 
     // method: return element of a specific position
     public T get(int index) throws Exception {
-        if(index < size){
+        if (index < size) {
             return (T) elements[index];
         } else {
             throw new ArrayIndexOutOfBoundsException();

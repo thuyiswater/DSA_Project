@@ -106,7 +106,7 @@ public class Search {
         int index = IndexSearch(arr, target, value); 
 
         if (index == -1) {  // no matching
-            System.out.println("User not found");
+            System.out.println("\nUser not found\n");
             return;
         } 
 
