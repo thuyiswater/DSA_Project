@@ -3,11 +3,11 @@ import java.util.*;
 public class Main {
 
     static Scanner input = new Scanner(System.in);
-    static MyArrayList<Customer> CustomersList = new MyArrayList<>();
+    static MyArrayList<Customer> customerList = new MyArrayList<>();
 
     public static void main(String[] args) throws Exception {
 
-        DataHandler.readFile(CustomersList);
+        DataHandler.readFile(customerList);
 
         while (true) {
 
@@ -23,7 +23,7 @@ public class Main {
 
             switch (option) {
                 case 1:
-                    AddCustomer.insert(CustomersList);
+                    AddCustomer.insert(customerList);
                     break;
                 case 2:
                     System.out.println("Update");
@@ -37,13 +37,13 @@ public class Main {
                     option = Integer.parseInt(input.next());
                     
                     if (option == 1) {
-                        Search.exactSearch(CustomersList);
+                        Search.exactSearch(customerList);
                     } else {
-                        Search.partialSearch(CustomersList);
+                        Search.partialSearch(customerList);
                     }
                     break;
                 case 4:
-                    DataHandler.writeFile(CustomersList);
+                    DataHandler.writeFile(customerList);
                     System.exit(0);
                 default:
                     System.out.println("Invalid option");
