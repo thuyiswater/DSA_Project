@@ -8,30 +8,36 @@ public class AddCustomer {
         Customer value = new Customer();
 
         System.out.println("\nPlease enter a new customer's information: ");
-        System.out.print("\nID: ");
-        value.setID(input.nextLine());
-        System.out.print("\nFirst name: ");
-        value.setFirstName(input.nextLine());
-        System.out.print("\nLast name: ");
-        value.setLastName(input.nextLine());
-        System.out.print("\nPhone number: ");
-        value.setPhone(input.nextLine());
 
+        System.out.print("\nID: "); 
+        value.setID(input.nextLine());   // get ID
+
+        System.out.print("\nFirst name: ");
+        value.setFirstName(input.nextLine());  // get First name
+
+        System.out.print("\nLast name: ");
+        value.setLastName(input.nextLine());  // get Last name
+
+        System.out.print("\nPhone number: ");
+        value.setPhone(input.nextLine());  // get Phone no.
+
+        // call function to add user
         if (add(arr, value)) {
             System.out.println("\nSuccesfully added!\n");
         } else {
             System.out.println("\nCustomer already exists\n");
         }
-
     }
 
     public static boolean add(MyArrayList<Customer> arr, Customer value) throws Exception {
+        
         int left = 0; // 1st value in list
         int right = arr.size() - 1; // last value in list
 
         while (left < right) {
 
-            int mid = (left + right) / 2;
+            int mid = (left + right) / 2;  // mid index
+
             if (value.getID().compareTo(arr.get(mid).getID()) > 0) {
                 left = mid + 1;
             } else {

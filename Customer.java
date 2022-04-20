@@ -54,14 +54,6 @@ public class Customer {
     @Override
     public String toString() {
 
-        // add space behind name
-        String space = " ";
-        int size = 40 - (firstName.length() + lastName.length());  // 40 is the max size for name
-
-        for (int i = 1; i < size; i++) {
-            space += " ";
-        }
-
-        return (String.format("%s %s %s %s %s", ID, firstName, lastName, space, phone));
+        return (String.format("%s %s %s %s", ID, firstName, lastName, phone));
     }
 }

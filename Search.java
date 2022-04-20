@@ -38,11 +38,13 @@ public class Search {
 
         int index = binarySearch(arr, value);  // result from binary search
 
-        if (index != -1) {
-            System.out.println("User found");
+        if (index == -1) {
+            System.out.println("No users found");
             return;
         } 
-        System.out.println("User not found");
+        
+        System.out.println("\nUser found");
+        System.out.println(arr.get(index));
     }
 
     // ---------------------------- P A R T I A L  S E A R C H -----------------------------------
