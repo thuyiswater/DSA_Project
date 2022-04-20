@@ -1,7 +1,9 @@
 import java.util.Scanner;
 
 public class Update {
+
     Scanner sc = new Scanner(System.in);
+    
     public int binarySearch(MyArrayList<Customer> arr, String value) throws Exception{
         int left = 0;
         int right = arr.size() - 1;
@@ -14,6 +16,7 @@ public class Update {
                 left = mid + 1;
             } else return mid;
         }
+        // no match value
         return -1;
     }
 
@@ -28,5 +31,11 @@ public class Update {
         }
         System.out.print("Which field you want to update\n" + "1. First name\n"
         + "2. Last name\n" + "3. Phone\n" + "PLease choose an option by enter the number: ");
+        int option = Integer.parseInt(sc.next());
+
+        if (option == 1) {
+
+        }
     }
+
 }

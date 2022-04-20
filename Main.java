@@ -35,13 +35,14 @@ public class Main {
                     System.out.print("\nPlease select an option by enter the number: ");
 
                     option = Integer.parseInt(input.next());
-                    
+
                     if (option == 1) {
                         Search.exactSearch(customerList);
                     } else {
                         Search.partialSearch(customerList);
                     }
                     break;
+
                 case 4:
                     DataHandler.writeFile(customerList);
                     System.exit(0);
