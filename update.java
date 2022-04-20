@@ -1,10 +1,10 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Update {
 
-    Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
     
-    public int binarySearch(MyArrayList<Customer> arr, String value) throws Exception{
+    public static int binarySearch(MyArrayList<Customer> arr, String value) throws Exception{
         int left = 0;
         int right = arr.size() - 1;
         
@@ -20,7 +20,7 @@ public class Update {
         return -1;
     }
 
-    public void updateCustomer(MyArrayList<Customer> arr) throws Exception{
+    public static void updateCustomer(MyArrayList<Customer> arr) throws Exception{
         System.out.print("Please enter an user's ID: ");
         String input = sc.nextLine();
 
@@ -29,12 +29,14 @@ public class Update {
         if(index == - 1) {
             System.out.println("No user found");
         }
-        System.out.print("Which field you want to update\n" + "1. First name\n"
-        + "2. Last name\n" + "3. Phone\n" + "PLease choose an option by enter the number: ");
-        int option = Integer.parseInt(sc.next());
+        System.out.print("Do you want to update first name (type 'Y' for yes and 'N' for no): ");
+        String option = sc.nextLine();
 
-        if (option == 1) {
-
+        if (option.toUpperCase() == "Y") {
+            System.out.print("\nEnter new first name: ");
+            DataHandler.writeFile(arr);
+        }else {
+            
         }
     }
 
