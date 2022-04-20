@@ -26,7 +26,7 @@ public class Update {
         if(index == - 1) {
             System.out.println("No user found");
         }
-        System.out.println("Which field you want to update \n" + 
-        );
+        System.out.println("Which field you want to update\n" + "1. First name\n"
+        + "2. Last name\n" + "3. Phone\n" + "");
     }
 }
