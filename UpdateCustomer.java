@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Update {
+public class UpdateCustomer {
 
     static Scanner sc = new Scanner(System.in);
     
@@ -33,11 +33,11 @@ public class Update {
         String option = sc.nextLine();
 
         if (option.toUpperCase() == "Y") {
+            DataHandler.readFile(arr);
             System.out.print("\nEnter new first name: ");
             DataHandler.writeFile(arr);
-        }else {
-            
         }
+
     }
 
 }
