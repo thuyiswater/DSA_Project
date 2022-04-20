@@ -26,7 +26,7 @@ public class Main {
                     AddCustomer.insert(customerList);
                     break;
                 case 2:
-                    System.out.println("Update");
+                    Update.updateCustomer(customerList);
                     break;
                 case 3:
                     System.out.println("\nSearch type: ");
