@@ -16,10 +16,10 @@ public class Main {
                     "4. Exit\n");
             System.out.print("\nPlease select an option by enter the number: ");
             int option = Integer.parseInt(input.next());
+            
             switch (option) {
                 case 1:
                     AddCustomer.insert(CustomersList);
-                    ;
                     break;
                 case 2:
                     System.out.println("Update");

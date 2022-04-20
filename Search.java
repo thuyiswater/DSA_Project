@@ -7,7 +7,7 @@ public class Search {
 
     // ----------------------------- B I N A R Y  S E A R C H ------------------------------------
     
-    public static int BinarySearch(MyArrayList<Customer> arr, String value) throws Exception {
+    public static int binarySearch(MyArrayList<Customer> arr, String value) throws Exception {
 
         int left = 0;  // set index
         int right = arr.size() - 1;  
@@ -31,12 +31,12 @@ public class Search {
 
     // ------------------------------ E X A C T  S E A R C H -------------------------------------
 
-    public static void ExactSearch(MyArrayList<Customer> arr) throws Exception {
+    public static void exactSearch(MyArrayList<Customer> arr) throws Exception {
 
         System.out.print("\nPlease enter a complete user's ID: ");
         String value = input.nextLine();  // get input
 
-        int index = BinarySearch(arr, value);  // result from binary search
+        int index = binarySearch(arr, value);  // result from binary search
 
         if (index != -1) {
             System.out.println("User found");
@@ -47,7 +47,7 @@ public class Search {
 
     // ---------------------------- P A R T I A L  S E A R C H -----------------------------------
 
-    public static int IndexSearch(MyArrayList<Customer> arr, String target, String value) throws Exception {
+    public static int indexSearch(MyArrayList<Customer> arr, String target, String value) throws Exception {
 
         int left = 0;  // set index
         int right = arr.size() - 1;  
@@ -69,7 +69,7 @@ public class Search {
         return -1;  // not match result
     }
 
-    public static void ValueSearch(MyArrayList<Customer> arr, int index, String value) throws Exception {
+    public static void valueSearch(MyArrayList<Customer> arr, int index, String value) throws Exception {
 
         // loop to left side
         for (int i = index - 1; i > index - 10; i--) {
@@ -88,7 +88,7 @@ public class Search {
         }
     }
 
-    public static void PartialSearch(MyArrayList<Customer> arr) throws Exception {
+    public static void partialSearch(MyArrayList<Customer> arr) throws Exception {
 
         System.out.print("\nPlease enter customer's ID (5 > 8 letters): ");
         String value = input.nextLine();  // get input
@@ -102,8 +102,8 @@ public class Search {
         double zero = Math.pow(10, 10 - value.length());  
         String target = value + String.valueOf((int) zero).substring(1);  // convert to string and add to input
 
-        // BinarySearch to find matching value
-        int index = IndexSearch(arr, target, value); 
+        // binarySearch to find matching value
+        int index = indexSearch(arr, target, value); 
 
         if (index == -1) {  // no matching
             System.out.println("\nUser not found\n");
@@ -112,6 +112,6 @@ public class Search {
 
         // loop forward and backward for matching value
         System.out.println(arr.get(index));
-        ValueSearch(arr, index, value);
+        valueSearch(arr, index, value);
     }
 }

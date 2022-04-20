@@ -2,14 +2,6 @@ import java.util.*;
 import java.io.*;
 
 class DataHandler {
-
-    // public static void main(String[] args) throws Exception {
-    //     readFile();
-    //     writeFile();
-    // }
-
-    // static MyArrayList<Customer> CustomersList = new MyArrayList<>();
-
     public static void readFile(MyArrayList<Customer> arr) throws Exception {
 
         // an array to store all customers

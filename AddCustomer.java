@@ -1,16 +1,6 @@
 import java.util.*;
 
 public class AddCustomer {
-
-    // public static void main(String[] args) throws Exception {
-    //     MyArrayList<Customer> tempArr = new MyArrayList<>();
-    //     insert(tempArr);
-    //     for (int i = 0; i < tempArr.size(); i++) {
-    //         System.out.println(tempArr.get(i).getID());
-    //     }
-
-    // }
-
     static Scanner input = new Scanner(System.in);
 
     public static void insert(MyArrayList<Customer> arr) throws Exception {
