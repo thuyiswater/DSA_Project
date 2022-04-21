@@ -20,10 +20,6 @@ public class UpdateCustomer {
         return -1;
     }
 
-    // public static void wait() {
-
-    // }
-
     public static void updateCustomer(MyArrayList<Customer> arr) throws Exception{
         System.out.print("Please enter an user's ID: ");
         String input = sc.nextLine();
@@ -43,7 +39,7 @@ public class UpdateCustomer {
         if (option == 1) {
             System.out.print("\nEnter new first name: ");
             String newLastName = sc.nextLine();
-            // DataHandler.writeFile(arr);
+            DataHandler.writeFile(arr);
         } else if (option == 2) {
             DataHandler.readFile(arr);
             System.out.println("Enter new last name: ");
