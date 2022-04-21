@@ -19,14 +19,16 @@ public class Main {
                     "4. Exit\n");
             System.out.print("\nPlease select an option by enter the number: ");
 
-            int option = Integer.parseInt(input.next());
+            int option = input.nextInt();
 
             switch (option) {
                 case 1:
                     AddCustomer.insert(customerList);
+                    new Buffer().buff();
                     break;
                 case 2:
-                    Update.updateCustomer(customerList);
+                    UpdateCustomer.updateCustomer(customerList);
+                    new Buffer().buff();
                     break;
                 case 3:
                     System.out.println("\nSearch type: ");
@@ -34,12 +36,14 @@ public class Main {
                     System.out.println("2. Search for a list of Customer");
                     System.out.print("\nPlease select an option by enter the number: ");
 
-                    option = Integer.parseInt(input.next());
+                    int option2 = input.nextInt();
 
-                    if (option == 1) {
+                    if (option2 == 1) {
                         Search.exactSearch(customerList);
+                        new Buffer().buff();
                     } else {
                         Search.partialSearch(customerList);
+                        new Buffer().buff();
                     }
                     break;
 

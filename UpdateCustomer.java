@@ -20,24 +20,36 @@ public class UpdateCustomer {
         return -1;
     }
 
+    // public static void wait() {
+
+    // }
+
     public static void updateCustomer(MyArrayList<Customer> arr) throws Exception{
         System.out.print("Please enter an user's ID: ");
         String input = sc.nextLine();
 
+        // check if user exist in csv file
         int index = binarySearch(arr, input);
-
+        // notify if user not exist
         if(index == - 1) {
             System.out.println("No user found");
+            return;
         }
-        System.out.print("Do you want to update first name (type 'Y' for yes and 'N' for no): ");
-        String option = sc.nextLine();
+        System.out.print("Which field do you want to update\n" + "1. First name\n" + 
+        "2. Last name\n" + "3. Phone\n" + "Select an option by enter a number: ");
+        int option = Integer.parseInt(sc.next());
 
-        if (option.toUpperCase() == "Y") {
-            DataHandler.readFile(arr);
+        DataHandler.readFile(arr);
+        if (option == 1) {
             System.out.print("\nEnter new first name: ");
-            DataHandler.writeFile(arr);
+            String newLastName = sc.nextLine();
+            // DataHandler.writeFile(arr);
+        } else if (option == 2) {
+            DataHandler.readFile(arr);
+            System.out.println("Enter new last name: ");
         }
 
     }
 
 }
+

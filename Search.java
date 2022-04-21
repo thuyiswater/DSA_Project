@@ -28,12 +28,13 @@ public class Search {
         }
         return -1;  // no match result
     }
+    
 
     // ------------------------------ E X A C T  S E A R C H -------------------------------------
 
     public static void exactSearch(MyArrayList<Customer> arr) throws Exception {
 
-        System.out.print("\nPlease enter a complete user's ID: ");
+        System.out.print("Please enter a complete user's ID: ");
         String value = input.nextLine();  // get input
 
         int index = binarySearch(arr, value);  // result from binary search
@@ -44,7 +45,8 @@ public class Search {
         } 
         
         System.out.println("\nUser found");
-        System.out.println(arr.get(index));
+        System.out.println(arr. get(index));
+       
     }
 
     // ---------------------------- P A R T I A L  S E A R C H -----------------------------------

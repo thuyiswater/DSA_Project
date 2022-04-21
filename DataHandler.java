@@ -2,6 +2,7 @@ import java.util.*;
 import java.io.*;
 
 class DataHandler {
+    
     public static void readFile(MyArrayList<Customer> arr) throws Exception {
 
         // an array to store all customers
@@ -40,7 +41,10 @@ class MyArrayList<T> {
 
     private Object[] elements;
     private int size;
-    private static int DEFAULT_CAPACITY = 1000; // temporary capacity of array when first created
+    // temporary capacity of array when first created
+    private static int DEFAULT_CAPACITY = 1000; 
+    // get rid of unchecked cast trom Object
+    @SuppressWarnings("unchecked")
 
     // constructor
     public MyArrayList() {
@@ -68,6 +72,9 @@ class MyArrayList<T> {
         elements[index] = obj;
         size++;
     }
+
+    // get rid of unchecked cast trom Object
+    @SuppressWarnings("unchecked")
 
     // method: return element of a specific position
     public T get(int index) throws Exception {
