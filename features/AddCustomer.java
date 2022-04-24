@@ -1,4 +1,8 @@
+package features;
 import java.util.*;
+
+import data.Customer;
+import data.MyArrayList;
 
 public class AddCustomer {
     static Scanner input = new Scanner(System.in);

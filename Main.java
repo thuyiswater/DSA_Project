@@ -1,8 +1,14 @@
 import java.util.*;
+import data.Customer;
+import data.DataHandler;
+import data.MyArrayList;
+import features.AddCustomer;
+import features.Search;
+import features.UpdateCustomer;
+import data.MyArrayList;
 
 public class Main {
 
-    static Scanner input = new Scanner(System.in);
     static MyArrayList<Customer> customerList = new MyArrayList<>();
 
     public static void main(String[] args) throws Exception {
@@ -18,8 +24,10 @@ public class Main {
                     "3. Search for customers\n" +
                     "4. Exit\n");
             System.out.print("\nPlease select an option by enter the number: ");
-
-            int option = input.nextInt();
+            
+            // solve the input miss match problem
+            try (Scanner input = new Scanner(System.in);) {
+                int option = input.nextInt();
 
             switch (option) {
                 case 1:
@@ -48,12 +56,17 @@ public class Main {
                     break;
 
                 case 4:
+                    System.out.println("Goodbye!");
                     DataHandler.writeFile(customerList);
                     System.exit(0);
+            
                 default:
                     System.out.println("Invalid option");
                     System.exit(0);
             }
+        } catch (InputMismatchException e) {
+                e.printStackTrace();
+                }
         }
     }
 }

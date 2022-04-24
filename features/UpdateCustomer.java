@@ -1,4 +1,9 @@
+package features;
+
 import java.util.*;
+import data.Customer;
+import data.MyArrayList;
+import data.DataHandler;
 
 public class UpdateCustomer {
 
@@ -33,7 +38,7 @@ public class UpdateCustomer {
         }
         System.out.print("Which field do you want to update\n" + "1. First name\n" + 
         "2. Last name\n" + "3. Phone\n" + "Select an option by enter a number: ");
-        int option = Integer.parseInt(sc.next());
+        int option = sc.nextInt();
 
         DataHandler.readFile(arr);
         if (option == 1) {

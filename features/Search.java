@@ -1,4 +1,9 @@
+package features;
 import java.util.*;
+
+import data.Customer;
+import data.MyArrayList;
+
 import java.lang.Math;
 
 public class Search {
@@ -70,7 +75,8 @@ public class Search {
                 left = mid + 1;  // move pointer to right
             }
         }
-        return -1;  // not match result
+        // not match result
+        return -1;  
     }
 
     public static void valueSearch(MyArrayList<Customer> arr, int index, String value) throws Exception {
