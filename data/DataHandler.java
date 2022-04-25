@@ -1,6 +1,5 @@
 package data;
 
-import java.util.*;
 import features.AddCustomer;
 import java.io.*;
 
@@ -9,7 +8,7 @@ public class DataHandler {
     public static void readFile(MyArrayList<Customer> arr) throws Exception {
 
         // an array to store all customers
-        BufferedReader reader = new BufferedReader(new FileReader("customer.csv")); // read file
+        BufferedReader reader = new BufferedReader(new FileReader("data/customer.csv")); // read file
         reader.readLine(); // skip 1st line
         String line = reader.readLine(); // read 2nd line
 

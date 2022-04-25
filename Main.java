@@ -29,44 +29,42 @@ public class Main {
             try (Scanner input = new Scanner(System.in);) {
                 int option = input.nextInt();
 
-            switch (option) {
-                case 1:
-                    AddCustomer.insert(customerList);
-                    new Buffer().buff();
-                    break;
-                case 2:
-                    UpdateCustomer.updateCustomer(customerList);
-                    new Buffer().buff();
-                    break;
-                case 3:
-                    System.out.println("\nSearch type: ");
-                    System.out.println("1. Search for one customer");
-                    System.out.println("2. Search for a list of Customer");
-                    System.out.print("\nPlease select an option by enter the number: ");
-
-                    int option2 = input.nextInt();
-
-                    if (option2 == 1) {
-                        Search.exactSearch(customerList);
+                switch (option) {
+                    case 1:
+                        AddCustomer.insert(customerList);
                         new Buffer().buff();
-                    } else {
-                        Search.partialSearch(customerList);
+                        break;
+                    case 2:
+                        UpdateCustomer.updateCustomer(customerList);
                         new Buffer().buff();
-                    }
-                    break;
+                        break;
+                    case 3:
+                        System.out.println("\nSearch type: ");
+                        System.out.println("1. Search for one customer");
+                        System.out.println("2. Search for a list of Customer");
+                        System.out.print("\nPlease select an option by enter the number: ");
+                        int option2 = input.nextInt();
 
-                case 4:
-                    System.out.println("Goodbye!");
-                    DataHandler.writeFile(customerList);
-                    System.exit(0);
-            
+                        if (option2 == 1) {
+                            Search.exactSearch(customerList);
+                            new Buffer().buff();
+                        } else {
+                            Search.partialSearch(customerList);
+                            new Buffer().buff();
+                        }
+                        break;
+
+                    case 4:
+                        System.out.println("Goodbye!");
+                        DataHandler.writeFile(customerList);
+                        System.exit(0);
                 default:
                     System.out.println("Invalid option");
                     System.exit(0);
-            }
-        } catch (InputMismatchException e) {
-                e.printStackTrace();
                 }
+            } catch (InputMismatchException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
