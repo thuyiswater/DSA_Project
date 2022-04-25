@@ -3,7 +3,8 @@ package features;
 import java.util.*;
 import data.Customer;
 import data.MyArrayList;
-import data.DataHandler;
+// import data.DataHandler;
+import data.Buffer;
 
 public class UpdateCustomer {
 
@@ -36,21 +37,30 @@ public class UpdateCustomer {
             System.out.println("No user found");
             return;
         }
-        System.out.print("Which field do you want to update\n" + "1. First name\n" + 
-        "2. Last name\n" + "3. Phone\n" + "Select an option by enter a number: ");
-        int option = sc.nextInt();
 
-        DataHandler.readFile(arr);
-        if (option == 1) {
-            System.out.print("\nEnter new first name: ");
-            String newLastName = sc.nextLine();
-            DataHandler.writeFile(arr);
-        } else if (option == 2) {
-            DataHandler.readFile(arr);
-            System.out.println("Enter new last name: ");
-        }
+        while (true) {
+            System.out.print("Which field do you want to update\n" + "1. First name\n" + 
+            "2. Last name\n" + "3. Phone\n" + "4. Exit\n" +
+             "Select an option by enter a number: ");
+            int option = sc.nextInt();
 
+            Customer cus = new Customer();
+
+            if(option == 1) {
+                System.out.print("Enter new first name: ");
+                cus.setFirstName(sc.nextLine());
+                System.out.println("\nUpdate successfull");
+                Buffer.buff();
+            } 
+            else if(option == 2) {
+                System.out.print("Enter new last name: ");
+                cus.setLastName(sc.nextLine());
+                System.out.println("Update successfull");
+            } 
+            else if(option == 4) {
+                break;
+            }
+        }      
     }
-
 }
 
